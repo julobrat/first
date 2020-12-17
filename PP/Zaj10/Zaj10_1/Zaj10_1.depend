@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1607017286 source:d:\pliki\repo\first\pp\zaj10\zaj10_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct{
+    int cukierki;
+    int dostalo;
+} TorbaCukierkow;
+
+int main()
+{
+    srand(time(0));
+    TorbaCukierkow torba;
+    torba.dostalo = 0;
+    char tab[100];
+    tab = "WIIITAAAAMM";
+    printf("%s", tab);
+
+    int ilu_uczniow = 10 + rand()%20;
+    int wszystkich = ilu_uczniow;
+    torba.cukierki = rand() % 40;
+    if(torba.cukierki%10 != 0) //zaokraglamy
+    {
+        torba.cukierki = torba.cukierki - torba.cukierki%10 + 10;
+    }
+    printf("Mamy %d uczniow i %d cukierkow\n", ilu_uczniow, torba.cukierki);
+    while(torba.cukierki > 0 && ilu_uczniow > 0)
+    {
+        printf("\nWszystkiego najlepszego");
+        torba.cukierki -= 1;
+        torba.dostalo += 1;
+        //printf("\n####Mam jeszcze %d cukierkow", torba.cukierki);
+        ilu_uczniow -=1;
+
+        int zapytanie = rand()%5;
+        if(zapytanie == 0)
+        {
+            printf("\nWszystkiego najlepszego, a moge dwa?");
+            if(torba.cukierki > 0)
+            {
+                torba.cukierki -= 1;
+                printf("\nA prosze bardzo");
+                //printf("####Mam jeszcze %d cukierkow", torba.cukierki);
+            }
+            else
+            {
+                printf("\nPrzykro mi, nie mam ju¿ cukierkow");
+                return 0;
+            }
+        }
+    }
+    if(ilu_uczniow == 0)
+    {
+        printf("\nWszyscy uczniowie dostali cukierki, tych uczniow bylo %d, zostalo mi jeszcze %d cukierkow", wszystkich, torba.cukierki);
+    }
+    else if(torba.cukierki == 0)
+    {
+        printf("\nZabraklo mi cukierkow, tylko %d uczniow je dostalo", torba.dostalo);
+    }
+    return 0;
+}
+/*Urodziny w klasie - solenizant przynosi cukierki do klasy,
+proszê wylosowaæ iloœæ uczniów) w okreœlonej iloœci (tyle ile ma klasa zaokr¹glaj¹c w górê do pe³nych dziesi¹tek),
+ka¿dy uczeñ bierze po cukierku, ale jest 20% szans, ¿e powie "Wszystkiego najlepszego, a mogê dwa" - wtedy g³upio mu odmówiæ.
+Proszê o wykonanie poczêstunku z informacj¹, ile osób dosta³o cukierki, a ile nie. Proszê aby utworzyæ strukturê TorbaCukierków,
+która bêdzie mia³a licznik, z którego bêdzie siê odejmowaæ.*/

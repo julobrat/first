@@ -5,7 +5,7 @@
 int main()
 {
     char alfabet[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','u','w','x','y','z'};
-    char tekst[] = "To";
+    char tekst[] = "ToakakakDDSADcaaasacdadadasdad";
     int licznik = 0;
     for(int i = 0; i < sizeof(tekst); ++i){
         for(int j = 0; j < sizeof(alfabet); ++j){
